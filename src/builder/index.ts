@@ -17,7 +17,7 @@ export class Builder {
       .addOp(Opcodes.OpIf)
       .addData(Buffer.from("kasplex"))
       .addI64(0n)
-      .addData(Buffer.from(JSON.stringify(inscription, null, 0)))
+      .addData(Buffer.from(inscription))
       .addOp(Opcodes.OpEndIf);
   }
 
