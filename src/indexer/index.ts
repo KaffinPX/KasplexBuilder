@@ -17,4 +17,14 @@ function buildFetchFunction <P extends Record<string, string>, R>(templateUrl: s
   }
 }
 
-export const getKRC20Balance = buildFetchFunction<KRC20BalanceRequestParams, KRC20BalanceResponse>('https://tn11api.kasplex.org/v1/krc20/address/{address}/token/{tick}')
+export class Indexer {
+  url: string
+
+  constructor (url: string) {
+    this.url = url
+  }
+
+  get getKRC20Balance () {
+    return buildFetchFunction<KRC20BalanceRequestParams, KRC20BalanceResponse>(`${this.url}/v1/krc20/address/{address}/token/{tick}`)
+  }
+}
