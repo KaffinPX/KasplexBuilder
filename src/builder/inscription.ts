@@ -1,7 +1,20 @@
 interface OperationMappings {
+  "deploy": {
+    tick: string
+    max: string
+    lim: string
+    to: string
+    dec?: string
+    pre?: string
+  }
   "mint": {
-    "tick": string
-    'to': string
+    tick: string
+    to: string
+  }
+  "transfer": {
+    tick: string
+    amt: string
+    to: string
   }
 }
 
