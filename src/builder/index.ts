@@ -1,4 +1,4 @@
-import { type ScriptBuilder, addressFromScriptPublicKey, Opcodes } from "./wasm"
+import { addressFromScriptPublicKey, Opcodes, type ScriptBuilder } from "../../wasm"
 
 export class Builder {
   script: ScriptBuilder
