@@ -25,6 +25,6 @@ export class Indexer {
   }
 
   get getKRC20Balance () {
-    return buildFetchFunction<KRC20BalanceRequestParams, KRC20BalanceResponse>(`${this.url}/v1/krc20/address/{address}/token/{tick}`)
+    return buildFetchFunction<KRC20BalanceRequestParams, KRC20BalanceResponse[]>(`${this.url}/v1/krc20/address/{address}/token/{tick}`)
   }
 }
