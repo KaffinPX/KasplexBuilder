@@ -1,9 +1,9 @@
 import type { KRC20BalanceRequestParams, KRC20BalanceResponse, KRC20BalancesRequestParams, KRC20BalancesResponse, KRC20TokenListRequestParams, KRC20TokenListResponse } from './protocol'
 
-type FetchFunction<P, R> = (params: P) => Promise<R>
+type FetchFunction<P, R> = (params?: P) => Promise<R>
 
 function buildFetchFunction <P extends Record<string, string | undefined>, R>(templateUrl: string): FetchFunction<P, R> {
-  return async (params: P) => {
+  return async (params: P = {} as P) => {
     const url = templateUrl.replace(/{(\w+)}/g, (_, key) => {
       const value = params[key]
       if (!value) throw Error('Missing required parameter', key)
