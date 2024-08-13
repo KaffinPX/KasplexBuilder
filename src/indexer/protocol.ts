@@ -29,27 +29,23 @@ export interface KRC20TokenListResponse extends IndexerListResponse<{
   mtsAdd: string
 }> {}
 
-export type KRC20BalancesRequestParams = {
-  address: string
-}
-
-export interface KRC20BalancesResponse extends IndexerListResponse<{
+export interface Balance {
   tick: string
   balance: string
   locked: string
   dec: string
   opScoreMod: string
-}> {}
+}
 
 export type KRC20BalanceRequestParams = {
   address: string
   tick: string
 }
 
-export interface KRC20BalanceResponse extends IndexerResponse<{
-  tick: string
-  balance: string
-  locked: string
-  dec: string
-  opScoreMod: string
-}> {}
+export interface KRC20BalanceResponse extends IndexerResponse<Balance> {}
+
+export type KRC20BalancesRequestParams = {
+  address: string
+}
+
+export interface KRC20BalancesResponse extends IndexerListResponse<Balance> {}
