@@ -1,3 +1,10 @@
+interface ScriptBuilder {
+  drain: () => void
+  addData: (data: string | Uint8Array) => ScriptBuilder
+  addOp: (op: number) => ScriptBuilder
+  addI64: (value: bigint) => ScriptBuilder
+}
+
 interface OperationMappings {
   "deploy": {
     tick: string
@@ -32,6 +39,20 @@ export class Inscription<O extends keyof OperationMappings> {
       'op': operation,
       ...params
     }
+  }
+  
+  writeBuilder (builder: ScriptBuilder, publicKey: string) {
+    builder.drain()
+
+    builder
+      .addData(publicKey)
+      .addOp(172) // OpCheckSig
+      .addOp(0) // OpFalse
+      .addOp(99) // OpIf
+      .addData(Buffer.from("kasplex"))
+      .addI64(0n)
+      .addData(Buffer.from(this.toString()))
+      .addOp(104); // OpEndIf
   }
 
   toString () {
