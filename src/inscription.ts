@@ -30,6 +30,8 @@ type InscriptionData<O extends keyof OperationMappings> = {
   op: O
 } & OperationMappings[O]
 
+const encoder = new TextEncoder()
+
 export class Inscription<O extends keyof OperationMappings> {
   data: InscriptionData<O>
 
@@ -49,9 +51,9 @@ export class Inscription<O extends keyof OperationMappings> {
       .addOp(172) // OpCheckSig
       .addOp(0) // OpFalse
       .addOp(99) // OpIf
-      .addData(Buffer.from("kasplex"))
+      .addData(encoder.encode("kasplex"))
       .addI64(0n)
-      .addData(Buffer.from(this.toString()))
+      .addData(encoder.encode(this.toString()))
       .addOp(104); // OpEndIf
   }
 
