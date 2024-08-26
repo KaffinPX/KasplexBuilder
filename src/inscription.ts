@@ -41,7 +41,7 @@ export class Inscription<O extends keyof OperationMappings> {
     }
   }
   
-  writeBuilder (builder: ScriptBuilder, publicKey: string) {
+  write (builder: ScriptBuilder, publicKey: string) {
     builder.drain()
 
     builder
