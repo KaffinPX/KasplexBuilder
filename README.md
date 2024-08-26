@@ -34,7 +34,7 @@ inscription.write(script, XOnlyPublicKey.fromAddress(address).toString())
 #### Commitment
 
 ```tsx
-  const commitAddress = addressFromScriptPublicKey(script.createPayToScriptHashScript(), 'TESTNET-10')!
+const commitAddress = addressFromScriptPublicKey(script.createPayToScriptHashScript(), 'TESTNET-10')!
 ```
 
 #### Reveal
@@ -42,6 +42,6 @@ inscription.write(script, XOnlyPublicKey.fromAddress(address).toString())
 With ``PendingTransaction[len - 1]`` via ``createTransactions``:
 
 ```tsx
-  const signature = transaction.createInputSignature(0, privateKey)
-  transaction.fillInput(0, script.encodePayToScriptHashSignatureScript(signature))  
+const signature = transaction.createInputSignature(0, privateKey)
+transaction.fillInput(0, script.encodePayToScriptHashSignatureScript(signature))  
 ```
