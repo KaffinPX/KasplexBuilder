@@ -1,7 +1,9 @@
 {
-  "name": "krc20builder",
+  "name": "kasplexbuilder",
   "module": "index.ts",
   "type": "module",
+  "version": "0.0.1",
+  "author": "KaffinPX",
   "peerDependencies": {
     "typescript": "^5.0.0"
   }
