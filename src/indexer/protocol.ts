@@ -8,13 +8,7 @@ export interface IndexerListResponse<T> extends IndexerResponse<T> {
   next: string
 }
 
-export type KRC20TokenListRequestParams = {
-  next?: string
-  prev?: string
-  sort?: string
-}
-
-export interface KRC20TokenListResponse extends IndexerListResponse<{
+export interface Token {
   tick: string,
   max: string,
   lim: string,
@@ -27,7 +21,15 @@ export interface KRC20TokenListResponse extends IndexerListResponse<{
   state: string,
   hashRev: string,
   mtsAdd: string
-}> {}
+}
+
+export type KRC20TokenListRequestParams = {
+  next?: string
+  prev?: string
+  sort?: string
+}
+
+export interface KRC20TokenListResponse extends IndexerListResponse<Token> {}
 
 export interface Balance {
   tick: string
