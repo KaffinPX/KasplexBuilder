@@ -3,33 +3,32 @@ export interface IndexerResponse<T> {
   result: T[]
 }
 
-export interface IndexerListResponse<T> extends IndexerResponse<T> {
+export interface IndexerListedResponse<T> extends IndexerResponse<T> {
   prev: string
   next: string
 }
 
 export interface Token {
-  tick: string,
-  max: string,
-  lim: string,
-  pre: string,
-  to: string,
-  dec: string,
-  minted: string,
-  opScoreAdd: string,
-  opScoreMod: string,
-  state: string,
-  hashRev: string,
+  tick: string
+  max: string
+  lim: string
+  pre: string
+  to: string
+  dec: string
+  minted: string
+  opScoreAdd: string
+  opScoreMod: string
+  state: string
+  hashRev: string
   mtsAdd: string
 }
 
-export type KRC20TokenListRequestParams = {
-  next?: string
-  prev?: string
-  sort?: string
+export interface TokenWithHolders extends Token {
+  holder: { 
+    address: string
+    amount: string
+  }[]
 }
-
-export interface KRC20TokenListResponse extends IndexerListResponse<Token> {}
 
 export interface Balance {
   tick: string
@@ -38,6 +37,22 @@ export interface Balance {
   dec: string
   opScoreMod: string
 }
+
+export type KRC20TokenListRequestParams = {
+  next?: string
+  prev?: string
+  sort?: string
+}
+
+export interface KRC20TokenListResponse extends IndexerListedResponse<Token> {}
+
+export type KRC20InfoRequestParams = {
+  next?: string
+  prev?: string
+  sort?: string
+}
+
+export interface KRC20InfoResponse extends IndexerListedResponse<TokenWithHolders> {}
 
 export type KRC20BalanceRequestParams = {
   address: string
@@ -50,4 +65,4 @@ export type KRC20BalancesRequestParams = {
   address: string
 }
 
-export interface KRC20BalancesResponse extends IndexerListResponse<Balance> {}
+export interface KRC20BalancesResponse extends IndexerListedResponse<Balance> {}

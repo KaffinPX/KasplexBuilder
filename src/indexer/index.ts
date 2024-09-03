@@ -1,4 +1,4 @@
-import type { KRC20BalanceRequestParams, KRC20BalanceResponse, KRC20BalancesRequestParams, KRC20BalancesResponse, KRC20TokenListRequestParams, KRC20TokenListResponse } from './protocol'
+import type { KRC20BalanceRequestParams, KRC20BalanceResponse, KRC20BalancesRequestParams, KRC20BalancesResponse, KRC20InfoRequestParams, KRC20InfoResponse, KRC20TokenListRequestParams, KRC20TokenListResponse } from './protocol'
 
 type FetchFunction<P, R> = (params?: P) => Promise<R>
 
@@ -35,6 +35,10 @@ export class Indexer {
 
   get getKRC20TokenList () {
     return buildFetchFunction<KRC20TokenListRequestParams, KRC20TokenListResponse>(`${this.url}/v1/krc20/tokenlist`)
+  }
+
+  get getKRC20Info () {
+    return buildFetchFunction<KRC20InfoRequestParams, KRC20InfoResponse>(`${this.url}/v1/krc20/token/{tick}`)
   }
 
   get getKRC20Balances () {
