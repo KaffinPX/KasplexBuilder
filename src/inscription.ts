@@ -10,18 +10,18 @@ interface OperationMappings {
     tick: string
     max: string
     lim: string
-    to: string
+    to?: string
     dec?: string
     pre?: string
   }
   "mint": {
     tick: string
-    to: string
+    to?: string
   }
   "transfer": {
     tick: string
     amt: string
-    to: string
+    to?: string
   }
 }
 
