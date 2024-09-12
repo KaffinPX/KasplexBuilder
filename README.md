@@ -4,7 +4,7 @@ An utility library for interaction with the Kasplex indexer and efficient creati
 ## Installation
 
 ```bash
-bun install KaffinPX/KaspianProvider
+bun install KaffinPX/KasplexBuilder
 ```
 
 Alternatively, you can install it using any package manager with Git support(for now).
