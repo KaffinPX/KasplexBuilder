@@ -1,9 +1,10 @@
 # KasplexBuilder
-Utility library for interacting with Kasplex indexer and creating inscriptions.
+An utility library for interaction with the Kasplex indexer and efficient creation of KRC20-compatible inscriptions on the Kaspa blockDAG.
 
 ## Usage
 
 ### Indexer
+Use the Indexer to easily fetch KRC-20 token balances or other data from the Kasplex indexer API.
 
 ```tsx
 import { Indexer } from 'KasplexBuilder'
@@ -16,6 +17,7 @@ const balances = await indexer.getKRC20Balances({
 ```
 
 ### Inscription
+With Inscription, you can create KRC-20 transfers or other token-related inscriptions and extract it as a Script.
 
 ```tsx
 import { ScriptBuilder, addressFromScriptPublicKey } from './wasm'
@@ -32,14 +34,15 @@ inscription.write(script, XOnlyPublicKey.fromAddress(address).toString())
 ```
 
 #### Commitment
+Generate the commitment address using the created script.
 
 ```tsx
 const commitAddress = addressFromScriptPublicKey(script.createPayToScriptHashScript(), 'TESTNET-10')!
 ```
 
 #### Reveal
-
-With ``PendingTransaction[len - 1]`` via ``createTransactions``:
+Sign the reveal transactions using the script and your private key.
+With ``PendingTransactions[len - 1]`` via ``createTransactions``:
 
 ```tsx
 const signature = transaction.createInputSignature(0, privateKey)
