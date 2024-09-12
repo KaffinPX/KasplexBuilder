@@ -1,6 +1,14 @@
 # KasplexBuilder
 An utility library for interaction with the Kasplex indexer and efficient creation of KRC20-compatible inscriptions on the Kaspa blockDAG.
 
+## Installation
+
+```bash
+bun install KaffinPX/KaspianProvider
+```
+
+Alternatively, you can install it using any package manager with Git support(for now).
+
 ## Usage
 
 ### Indexer
