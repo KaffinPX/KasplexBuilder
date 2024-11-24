@@ -47,12 +47,10 @@ export type KRC20TokenListRequestParams = {
 export interface KRC20TokenListResponse extends IndexerListedResponse<Token> {}
 
 export type KRC20InfoRequestParams = {
-  next?: string
-  prev?: string
-  sort?: string
+  tick: string
 }
 
-export interface KRC20InfoResponse extends IndexerListedResponse<TokenWithHolders> {}
+export interface KRC20InfoResponse extends IndexerResponse<TokenWithHolders> {}
 
 export type KRC20BalanceRequestParams = {
   address: string
