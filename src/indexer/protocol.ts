@@ -1,6 +1,6 @@
 export interface IndexerResponse<T> {
   message: string
-  result: T[]
+  result: T
 }
 
 export interface IndexerListedResponse<T> extends IndexerResponse<T> {
@@ -44,7 +44,7 @@ export type KRC20TokenListRequestParams = {
   sort?: string
 }
 
-export interface KRC20TokenListResponse extends IndexerListedResponse<Token> {}
+export interface KRC20TokenListResponse extends IndexerListedResponse<Token[]> {}
 
 export type KRC20InfoRequestParams = {
   tick: string
@@ -63,4 +63,4 @@ export type KRC20BalancesRequestParams = {
   address: string
 }
 
-export interface KRC20BalancesResponse extends IndexerListedResponse<Balance> {}
+export interface KRC20BalancesResponse extends IndexerListedResponse<Balance[]> {}
