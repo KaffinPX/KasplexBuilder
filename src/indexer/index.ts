@@ -6,7 +6,7 @@ function buildFetchFunction <P extends Record<string, string | undefined>, R>(te
   return async (params: P = {} as P) => {
     const url = templateUrl.replace(/{(\w+)}/g, (_, key) => {
       const value = params[key]
-      if (!value) throw Error('Missing required parameter', key)
+      if (!value) throw Error(`Missing required parameter ${key}`)
 
       delete params[key]
       return encodeURIComponent(value)
